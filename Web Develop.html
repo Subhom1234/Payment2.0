@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Payment</title>
+  <link rel="stylesheet" href="9.css">
+  <link rel="icon" href="IMG_20240411_234420.jpg">
+  <style>
+   #none{
+     display: none;
+   } 
+  </style>
+</head>
+<body>
+  <div class="cover" id="cover">
+    <h1><u>Web Develop</u></h1>
+<a href="IMG_20240411_162425.jpg" download><button id="qr"></button></a>
+<p id="p"><b>Click Image For Download Qr</b></p>
+ <div class="contact-right">
+     
+
+      <form id="xyz" name="submit-to-google-sheet">
+     
+        <select name="Type" id="none">
+      <option value="Web Develop"></option>
+                         </select>
+     
+      <b>Name</b><br>
+    <input type="text" name="Name" placeholder="Your Name" required><br><br>
+          <b>Email</b><br>
+       <input type="email" name="Email" placeholder="Your Email" required><br><br>
+       <b>Mobile Number</b><br>
+    <input type="number" name="Mobile Number" placeholder="Your Mobile Number" required><br><br>
+    <b>WhatsApp Number</b><br>
+    <input type="number" name="WhatsApp Number Number" placeholder="Your WhatsApp Number Number" required><br><br>
+    <b>Transaction ID/<br>Transaction Mobile Number</b><br>
+        <input type="text" name="Transaction ID" placeholder="Your Transaction ID/M.Number" required><br><br>
+        
+    
+
+        <b>Remark</b><br>
+    <textarea name="Remark" rows="2" placeholder="Your Remark"></textarea>
+    <br><br>
+    <button type="submit" class="btn btn2" id="btn">Submit</button><br><br>
+    </form>
+    </form>
+    <span id="success"></span><br><br>
+    </div>
+
+        <br><br>
+    <div id="contact">
+<h1 id="h"><u>Contact</u></h1>
+      <label for="Tel" id="t">Mobile Number : </label>
+      <a href="tel:+916290511750">6290511750</a><br><br>
+      <label for=mail id="t"> Mail : </label>
+      <a href="mailto: subhomkole5@gmail.com">subhomkole5@gmail.com</a>
+
+    </div>
+       <a href="https://subhom1234.github.io/Subhom/">
+  <div id="copyright">
+    Copyright Ⓒ Subhom 2024
+  </div></a>
+  </div>
+<div>
+  
+</div>
+</body>
+<script>
+  
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwJAyrM3LBRvGt0m5d4qeaSxkOLAQxFlhe_CPVDOtzlMfZcWkMUvZm74kVo3yTcGkvSKw/exec'
+  
+  const form = document.forms['submit-to-google-sheet']
+  const success = document.getElementById('success')
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        success.innerHTML = "Data Successfully Submitted";
+        setTimeout(function() {
+          success.innerHTML = "";
+        }, 5000)
+        form.reset();
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+  
+</script>
+</html>
